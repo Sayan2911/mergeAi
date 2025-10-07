@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { api } from "../../utils/axiosInstance.js";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../utils/zustandStore.js";
@@ -12,6 +12,13 @@ const LogIn = () => {
   const clearUserId = useAuthStore((state) => state.clearUserId);
   const navigate = useNavigate();
   const isDisable = email === "" || password === "";
+  useEffect(() => {
+    const token = JSON.parse(sessionStorage.getItem("auth-storage"))?.state
+      ?.token;
+
+    if (token) navigate("/"); // already logged in → redirect to home
+  }, [navigate]);
+
   const logInHnadler = async (e) => {
     e.preventDefault();
     try {
@@ -23,7 +30,7 @@ const LogIn = () => {
       console.log("Response:", res);
       clearToken();
       await setToken(res?.token);
-      clearUserId()
+      clearUserId();
       await setUserId(res?.user?.id);
       navigate("/");
     } catch (err) {

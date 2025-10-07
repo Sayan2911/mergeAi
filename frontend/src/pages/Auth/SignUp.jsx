@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../utils/axiosInstance.js";
 import { useAuthStore } from "../../utils/zustandStore.js";
@@ -9,11 +9,19 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const isDisable = userName === "" || email === "" || password === "";
-    const setToken = useAuthStore((state) => state.setToken);
-    const setUserId = useAuthStore((state) => state.setUserId);
-    const clearToken = useAuthStore((state) => state.clearToken);
-    const clearUserId = useAuthStore((state) => state.clearUserId);
-   const signInHandler = async (e) => {
+  const setToken = useAuthStore((state) => state.setToken);
+  const setUserId = useAuthStore((state) => state.setUserId);
+  const clearToken = useAuthStore((state) => state.clearToken);
+  const clearUserId = useAuthStore((state) => state.clearUserId);
+
+  useEffect(() => {
+    const token = JSON.parse(sessionStorage.getItem("auth-storage"))?.state
+      ?.token;
+
+    if (token) navigate("/"); // already logged in → redirect to home
+  }, [navigate]);
+
+  const signInHandler = async (e) => {
     e.preventDefault();
     try {
       const res = await api.post(register, {
@@ -25,7 +33,7 @@ const SignUp = () => {
       console.log("Response:", res);
       clearToken();
       await setToken(res.token);
-      clearUserId()
+      clearUserId();
       await setUserId(res?.user?.id);
       navigate("/login");
     } catch (err) {
@@ -151,7 +159,7 @@ const SignUp = () => {
                 <button
                   class="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   onClick={() => {
-                   navigate('/login')
+                    navigate("/login");
                   }}
                 >
                   Log in

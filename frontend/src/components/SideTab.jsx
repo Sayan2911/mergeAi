@@ -7,7 +7,7 @@ import { api } from "../utils/axiosInstance";
 import { allChnnels } from "../utils/api.js";
 const SideTab = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const UserId = JSON.parse(localStorage.getItem("auth-storage"))?.state
+  const UserId = JSON.parse(sessionStorage.getItem("auth-storage"))?.state
     ?.userId;
   const [allChannles, setAllChannles] = useState([]);
   const callAllChannels = async () => {

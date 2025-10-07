@@ -1,0 +1,24 @@
+{
+  "name": "togetherai",
+  "version": "1.0.0",
+  "description": "This project contains:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "start": "concurrently \"npm start --prefix frontend\" \"npm start --prefix backend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sayan2911/mergeAi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sayan2911/mergeAi/issues"
+  },
+  "homepage": "https://github.com/Sayan2911/mergeAi#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
