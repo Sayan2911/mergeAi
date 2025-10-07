@@ -14,7 +14,6 @@ const Home = () => {
         <div className=" mt-[75px] w-full mx-2" >
           <Toggler />
           <TextBox />
-          <AiResBox />
         </div>
       </div>
     </div>

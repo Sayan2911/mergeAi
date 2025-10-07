@@ -4,6 +4,7 @@ import { allChannelId, allMessage, deleteChatByChannelId, newPromptQuery } from 
 const aiRouter = express.Router()
 
 
+aiRouter.post("/channel/",newPromptQuery)
 aiRouter.post("/channel/:channelId",newPromptQuery)
 aiRouter.post("/delChat",deleteChatByChannelId)
 aiRouter.post("/channels/allChnnels",allChannelId)

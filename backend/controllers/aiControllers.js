@@ -80,7 +80,7 @@ export const newPromptQuery = async (req, res) => {
       aiMessages.push({
         channelId: channel._id,
         role: "assistant",
-        model: "grok-4-fast",
+        model: "meta-llama/llama-4-maverick:free",
         content: normalizeResponse(aiResponses.thirdAi),
         promptIndex: nextIndex,
       });

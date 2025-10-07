@@ -3,7 +3,7 @@ import Channel from "./Channel";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
-import { api } from "../utils/axiosInstance";
+import { api } from "../utils/axiosInstance.js";
 import { allChnnels } from "../utils/api.js";
 const SideTab = () => {
   const [isOpen, setIsOpen] = useState(true);

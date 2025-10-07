@@ -56,7 +56,7 @@ export const aiApiCall = async (prompt, isFirstAi, isSecondAi, isThirdAi) => {
 
   if (isThirdAi) {
     const completion = await openai.chat.completions.create({
-      model: "x-ai/grok-4-fast:free",
+      model: "meta-llama/llama-4-maverick:free",
       messages: [{ role: "user", content: prompt }],
     });
     responses.thirdAi = completion.choices[0].message;

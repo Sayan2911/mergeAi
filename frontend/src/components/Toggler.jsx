@@ -31,7 +31,7 @@ const Toggler = () => {
         </div>
         <div className="flex justify-center items-center gap-4 ">
           <div>
-            <p className=" text-xl font-bold">gpt5</p>
+            <p className=" text-xl font-bold">GPT</p>
           </div>
           <div>
             <label class="switch">
@@ -46,7 +46,7 @@ const Toggler = () => {
         </div>
         <div className="flex justify-center items-center gap-4 ">
           <div>
-            <p className=" text-xl font-bold">claude 4</p>
+            <p className=" text-xl font-bold">Llama</p>
           </div>
           <div>
             <label class="switch">
