@@ -9,7 +9,7 @@ dist/
 .env
 frontend/.gitignore
 backend/.gitignore
-./gitignore
+gitignore
 
 # Logs
 *.log
